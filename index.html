@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline Catalyst - 60% More Meetings in 30 Days</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #5046E4;
+            --primary-dark: #3730A3;
+            --secondary: #10B981;
+            --dark: #0F172A;
+            --gray: #64748B;
+            --light-gray: #F1F5F9;
+            --white: #FFFFFF;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success: #10B981;
+            --warning: #F59E0B;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(80, 70, 228, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-60px) translateY(-60px); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease 0.4s both;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .stat {
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .problem-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .problem-text {
+            color: var(--gray);
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 5rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .solution-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .solution-feature {
+            display: flex;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-icon {
+            background: var(--success);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .solution-visual {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .metric-card {
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .metric-before {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .metric-after {
+            color: var(--success);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Package Section */
+        .package {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .package-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .package-header {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .package-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .package-subtitle {
+            opacity: 0.9;
+        }
+
+        .package-body {
+            padding: 2rem;
+        }
+
+        .package-section {
+            margin-bottom: 2rem;
+        }
+
+        .package-section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .package-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 0.75rem;
+            color: var(--gray);
+        }
+
+        .check {
+            color: var(--success);
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        /* ROI Section */
+        .roi {
+            padding: 5rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .roi-calculator {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .roi-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .roi-row:last-child {
+            border-bottom: none;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 35px;
+            top: 50px;
+            bottom: -30px;
+            width: 2px;
+            background: var(--light-gray);
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-number {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-right: 2rem;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .timeline-content p {
+            color: var(--gray);
+        }
+
+        /* Testimonial Section */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient);
+            margin-right: 1rem;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .author-title {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 5rem 2rem;
+            background: var(--gradient);
+            text-align: center;
+            color: white;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .guarantee {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+
+            .timeline-item::before {
+                display: none;
+            }
+
+            .timeline-number {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Floating animation for cards */
+        @keyframes float-card {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float {
+            animation: float-card 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Pipeline Catalyst</div>
+            <a href="#package" class="nav-cta">Get Started - $2,499</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Your SDRs Could Book 60% More Meetings Next Month</h1>
+                <p class="hero-subtitle">I deliver the exact email sequences and call scripts that top SaaS companies use to fill their pipeline. No fluff. No theory. Just proven frameworks that convert.</p>
+                <a href="#package" class="hero-cta">Get Your Sequences in 10 Days →</a>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">8%</div>
+                        <div class="stat-label">Average Response Rate</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">60%</div>
+                        <div class="stat-label">More Meetings Booked</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Days to Delivery</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">Your SDRs Are Struggling (And It's Not Their Fault)</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">📧</div>
+                    <h3 class="problem-title">Generic Templates = Ignored Emails</h3>
+                    <p class="problem-text">Your team is using the same tired templates everyone else uses. Prospects delete them without reading.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🎯</div>
+                    <h3 class="problem-title">Low Response Rates Kill Morale</h3>
+                    <p class="problem-text">When SDRs send 100 emails and get 2 responses, they lose motivation. Good reps quit. Ramp time increases.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💰</div>
+                    <h3 class="problem-title">Every Month Costs You Revenue</h3>
+                    <p class="problem-text">While you debate fixing your sequences, competitors are booking meetings with your prospects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="solution-grid">
+                <div class="solution-content">
+                    <h2>Battle-Tested Sequences That Actually Convert</h2>
+                    <div class="solution-feature">
+                        <span class="solution-icon">✓</span>
+                        <div>
+                            <strong>Personalized at Scale:</strong> Templates that feel one-to-one but work for hundreds of prospects
+                        </div>
+                    </div>
+                    <div class="solution-feature">
+                        <span class="solution-icon">✓</span>
+                        <div>
+                            <strong>Proven Psychology:</strong> Each email strategically moves prospects toward booking a meeting
+                        </div>
+                    </div>
+                    <div class="solution-feature">
+                        <span class="solution-icon">✓</span>
+                        <div>
+                            <strong>Industry-Specific:</strong> Messaging that resonates with your exact target market
+                        </div>
+                    </div>
+                    <div class="solution-feature">
+                        <span class="solution-icon">✓</span>
+                        <div>
+                            <strong>Ready to Deploy:</strong> Drop into Outreach, Salesloft, or any tool you use
+                        </div>
+                    </div>
+                </div>
+                <div class="solution-visual">
+                    <div class="metric-card">
+                        <div class="metric-before">Before: 2% response rate</div>
+                        <div class="metric-after">After: 8% response rate</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-before">Before: 15 meetings/month</div>
+                        <div class="metric-after">After: 24 meetings/month</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-before">Before: 20% no-show rate</div>
+                        <div class="metric-after">After: 12% no-show rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Section -->
+    <section class="package" id="package">
+        <div class="container">
+            <h2 class="section-title">Everything You Need to Transform Your Outbound</h2>
+            <div class="package-card">
+                <div class="package-header">
+                    <div class="package-name">Sales Sequence Jumpstart</div>
+                    <div class="package-price">$2,499</div>
+                    <div class="package-subtitle">One-time investment • Delivered in 10 days</div>
+                </div>
+                <div class="package-body">
+                    <div class="package-section">
+                        <div class="package-section-title">5 Complete Email Sequences (7 emails each)</div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>Cold Outbound - Turn strangers into meetings</span>
+                        </div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>No-Show Recovery - Rescue ghosted meetings</span>
+                        </div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>Stalled Deal Revival - Revive dead opportunities</span>
+                        </div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>Post-Demo Follow-up - Convert demos to deals</span>
+                        </div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>Referral Request - Turn customers into advocates</span>
+                        </div>
+                    </div>
+                    <div class="package-section">
+                        <div class="package-section-title">Call Scripts & Frameworks</div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>Discovery Call Framework - Qualify effectively</span>
+                        </div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>Demo-to-Close Script - Move deals forward</span>
+                        </div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>Objection Handling Guide - Never get stuck</span>
+                        </div>
+                    </div>
+                    <div class="package-section">
+                        <div class="package-section-title">LinkedIn Outreach System</div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>5 Connection Request Templates</span>
+                        </div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>4-Touch Follow-up Sequence</span>
+                        </div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>InMail Templates for Direct Outreach</span>
+                        </div>
+                    </div>
+                    <div class="package-section">
+                        <div class="package-section-title">Bonus Resources</div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>25 Proven Subject Lines</span>
+                        </div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>15 CTA Variations That Convert</span>
+                        </div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>Performance Tracking Spreadsheet</span>
+                        </div>
+                        <div class="package-item">
+                            <span class="check">✓</span>
+                            <span>30 Days of Email Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="roi">
+        <div class="container">
+            <h2 class="section-title">The Math Is Simple</h2>
+            <div class="roi-calculator">
+                <div class="roi-row">
+                    <span>Your Investment</span>
+                    <span>$2,499</span>
+                </div>
+                <div class="roi-row">
+                    <span>Additional Meetings per Month</span>
+                    <span>9 meetings</span>
+                </div>
+                <div class="roi-row">
+                    <span>Meeting-to-Opportunity Rate</span>
+                    <span>50%</span>
+                </div>
+                <div class="roi-row">
+                    <span>Average Deal Size</span>
+                    <span>$30,000</span>
+                </div>
+                <div class="roi-row">
+                    <span>Close Rate</span>
+                    <span>25%</span>
+                </div>
+                <div class="roi-row">
+                    <span>Additional Revenue (Month 1)</span>
+                    <span>$33,750</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">From Struggling to Scaling in 10 Days</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3>Day 1: Strategy Session</h3>
+                        <p>30-minute call to understand your ICP, product, and sales process. I'll gather everything needed to customize your sequences.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3>Days 2-5: Research & Development</h3>
+                        <p>I analyze your competitors, research your market, and craft sequences specifically for your target audience.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3>Days 6-8: Refinement</h3>
+                        <p>Each sequence is optimized for your tools, compliance requirements, and brand voice.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3>Day 10: Delivery</h3>
+                        <p>You receive everything via Google Drive with a video walkthrough. Your SDRs can start using them immediately.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Results Speak Louder Than Promises</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Our response rate went from 3% to 11% in the first month. The sequences paid for themselves in the first week."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <div class="author-name">Sarah Chen</div>
+                            <div class="author-title">VP Sales, TechFlow (Series A SaaS)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Finally, sequences that don't sound like everyone else's. Our SDRs actually enjoy sending these emails."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <div class="author-name">Marcus Williams</div>
+                            <div class="author-title">Sales Director, DataSync ($5M ARR)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"We tried AI tools, hired copywriters, nothing worked. These sequences generated 47 meetings in month one."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <div class="author-name">Jessica Park</div>
+                            <div class="author-title">Head of Sales Enablement, CloudOps</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Your Competition Is Booking Meetings Right Now</h2>
+            <p>Every day you wait is another day of missed opportunities</p>
+            <a href="https://calendly.com/your-link" class="cta-button">Book Your Strategy Call →</a>
+            <p class="guarantee">🔒 30-day money-back guarantee if you don't see improved response rates</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Pipeline Catalyst. Helping SaaS companies book more meetings, faster.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add floating animation to cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.problem-card, .testimonial, .timeline-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.textContent.includes('%') ? '%' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (element.textContent.includes('%') ? '%' : '');
+                }
+            }, 16);
+        }
+
+        // Trigger counter animation when stats come into view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.animated) {
+                    entry.target.animated = true;
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const value = parseInt(stat.textContent);
+                        animateCounter(stat, value);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const heroStats = document.querySelector('.hero-stats');
+        if (heroStats) {
+            statsObserver.observe(heroStats);
+        }
+
+        // Add hover effect to package items
+        document.querySelectorAll('.package-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Dynamic year in footer
+        const currentYear = new Date().getFullYear();
+        document.querySelector('footer p').innerHTML = `&copy; ${currentYear} Pipeline Catalyst. Helping SaaS companies book more meetings, faster.`;
+    </script>
+</body>
+</html>
