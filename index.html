@@ -3,38 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pipeline Catalyst - 60% More Meetings in 30 Days</title>
+    <title>Pipeline Catalyst - Transform Your SDR Performance</title>
+    <meta name="description" content="Move your SDRs from average performers (3 meetings per 1,000 emails) to top 25% (13 meetings per 1,000 emails) with proven email sequences and call scripts.">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-
-        :root {
-            --primary: #5046E4;
-            --primary-dark: #3730A3;
-            --secondary: #10B981;
-            --dark: #0F172A;
-            --gray: #64748B;
-            --light-gray: #F1F5F9;
-            --white: #FFFFFF;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --success: #10B981;
-            --warning: #F59E0B;
+        .stats-card {
+            background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <nav class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-900">Pipeline Catalyst</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#how-it-works" class="text-gray-600 hover:text-gray-900">How It Works</a>
+                    <a href="#data" class="text-gray-600 hover:text-gray-900">The Data</a>
+                    <a href="#packages" class="text-gray-600 hover:text-gray-900">Services</a>
+                    <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            overflow-x: hidden;
-        }
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl font-bold mb-6">Move Your SDRs from Average to Top 25%</h1>
+            <p class="text-xl mb-8 opacity-90">Get the exact email sequences and call scripts that top SaaS performers use to book 8x more meetings than average reps.</p>
+            <div class="bg-white bg-opacity-20 rounded-lg p-6 mb-8 inline-block">
+                <div class="text-3xl font-bold">Average: 3 meetings per 1,000 emails</div>
+                <div class="text-3xl font-bold mt-2">Top 25%: 13 meetings per 1,000 emails</div>
+                <div class="text-lg mt-2 opacity-90">Based on analysis of 28+ million cold emails</div>
+            </div>
+            <div>
+                <a href="#contact" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 mr-4">Get Custom Quote</a>
+                <a href="#how-it-works" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600">See How It Works</a>
+            </div>
+        </div>
+    </section>
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
+    <!-- Problem Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">The Reality of SDR Performance</h2>
+                <p class="text-xl text-gray-600">Most teams are stuck with average results because they're using the same tired templates as everyone else</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-red-600 mb-2">344</div>
+                    <div class="text-lg font-semibold mb-2">Emails needed for 1 meeting</div>
+                    <div class="text-gray-600">Average rep performance</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-red-600 mb-2">35%</div>
+                    <div class="text-lg font-semibold mb-2">Annual SDR turnover</div>
+                    <div class="text-gray-600">Due to poor results and low morale</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-red-600 mb-2">60%</div>
+                    <div class="text-lg font-semibold mb-2">Miss quota consistently</div>
+                    <div class="text-gray-600">Average SDR quota attainment</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Section -->
+    <section id="data" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">The Performance Gap Is Real</h2>
+                <p class="text-xl text-gray-600">Data from Gong Labs analysis of 28+ million cold emails shows the dramatic difference between average and top performers</p>
+            </div>
+            
+            <div class="bg-gray-50 rounded-lg p-8 mb-12">
+                <h3 class="text-2xl font-bold text-center mb-8">Performance Per 1,000 Emails Sent</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="font-semibold text-gray-700 mb-4">Rep Performance</div>
+                        <div class="space-y-4">
+                            <div class="py-2 bg-white rounded">Average</div>
+                            <div class="py-2 bg-blue-100 rounded">Top 25%</div>
+                            <div class="py-2 bg-green-100 rounded font-semibold">Top 10%</div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-semibold text-gray-700 mb-4">Opens</div>
+                        <div class="space-y-4">
+                            <div class="py-2 text-2xl font-bold">273</div>
+                            <div class="py-2 text-2xl font-bold text-blue-600">465</div>
+                            <div class="py-2 text-2xl font-bold text-green-600">579</div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-semibold text-gray-700 mb-4">Replies</div>
+                        <div class="space-y-4">
+                            <div class="py-2 text-2xl font-bold">19</div>
+                            <div class="py-2 text-2xl font-bold text-blue-600">46</div>
+                            <div class="py-2 text-2xl font-bold text-green-600">79</div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-semibold text-gray-700 mb-4">Meetings</div>
+                        <div class="space-y-4">
+                            <div class="py-2 text-2xl font-bold bg-white rounded">3</div>
+                            <div class="py-2 text-2xl font-bold bg-blue-100 text-blue-800 rounded">13</div>
+                            <div class="py-2 text-2xl font-bold bg-green-100 text-green-800 rounded">23</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <div class="inline-block bg-orange-100 text-orange-800 px-6 py-3 rounded-full font-bold text-lg">
+                        Top reps book 8.1x MORE meetings than average performers
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="stats-card rounded-lg p-6">
+                    <h4 class="text-xl font-bold mb-3">Email Performance</h4>
+                    <div class="text-3xl font-bold text-blue-600 mb-2">57.9% vs 27.3%</div>
+                    <p class="text-gray-700">Top reps achieve 2x higher open rates through better subject lines and sender reputation</p>
+                </div>
+                <div class="stats-card rounded-lg p-6">
+                    <h4 class="text-xl font-bold mb-3">Reply Quality</h4>
+                    <div class="text-3xl font-bold text-green-600 mb-2">29.6% vs 15.3%</div>
+                    <p class="text-gray-700">Top reps convert replies to meetings at nearly 2x the rate - they attract genuinely interested prospects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">How We Move You to Top Performer Status</h2>
+                <p class="text-xl text-gray-600">A proven 4-step process that delivers results in 10 business days</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+                    <h3 class="text-xl font-semibold mb-3">Strategy Session</h3>
+                    <p class="text-gray-600">30-minute call to understand your ICP, product positioning, and current challenges</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+                    <h3 class="text-xl font-semibold mb-3">Market Research</h3>
+                    <p class="text-gray-600">Deep dive into your competitors, market positioning, and buyer language patterns</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+                    <h3 class="text-xl font-semibold mb-3">Sequence Development</h3>
+                    <p class="text-gray-600">Custom email sequences and call scripts optimized for your specific market and tools</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+                    <h3 class="text-xl font-semibold mb-3">Implementation</h3>
+                    <p class="text-gray-600">Complete package delivery with video walkthrough and implementation guide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Sets Top Performers Apart -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">What Sets Top Performers Apart</h2>
+                <p class="text-xl text-gray-600">Based on analysis of millions of high-performing emails</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-4 mt-1">✓</div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">Emails under 100 words with clear point of view</h4>
+                                <p class="text-gray-600">Concise messaging that respects the prospect's time while delivering value</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-4 mt-1">✓</div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">Language that reflects buyer priorities</h4>
+                                <p class="text-gray-600">Focus on customer outcomes, not product features or marketing speak</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-4 mt-1">✓</div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">Simplicity over cleverness</h4>
+                                <p class="text-gray-600">Relevance beats creativity - clear value proposition wins every time</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-4 mt-1">✓</div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">No buzzwords or inflated ROI claims</h4>
+                                <p class="text-gray-600">Authentic messaging that builds trust instead of triggering spam filters</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-lg p-8">
+                    <h4 class="text-xl font-bold mb-4">The Bottom Line</h4>
+                    <div class="text-lg text-gray-700 space-y-4">
+                        <p>The margin for error has shrunk in cold outreach, but the upside has never been greater.</p>
+                        <p>While average reps struggle with generic templates, top performers use precision-crafted sequences that speak directly to buyer needs.</p>
+                        <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-500">
+                            <p class="font-semibold text-blue-800">We deliver the exact frameworks that separate top performers from the rest.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="packages" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Custom Packages for Every Team Size</h2>
+                <p class="text-xl text-gray-600">Pricing and deliverables tailored to your SDR team size and needs</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-bold mb-4">Foundation</h3>
+                    <div class="text-gray-600 mb-6">Perfect for smaller teams ready to scale</div>
+                    <div class="mb-6">
+                        <div class="text-sm text-gray-500 mb-2">IDEAL FOR</div>
+                        <div class="font-semibold">1-9 SDRs</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>3 core email sequences (15 emails total)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>2 LinkedIn outreach sequences</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Call script with objection handling</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>20 subject line variations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Implementation guide & setup call</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700">Get Custom Quote</a>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-8 border-2 border-blue-500 relative">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <span class="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">MOST POPULAR</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Scale</h3>
+                    <div class="text-gray-600 mb-6">For growing teams with established processes</div>
+                    <div class="mb-6">
+                        <div class="text-sm text-gray-500 mb-2">IDEAL FOR</div>
+                        <div class="font-semibold">10-29 SDRs</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Everything in Foundation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>2 additional sequences (stalled deals, referrals)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Industry-specific messaging variations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>A/B test templates for optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Two implementation & training calls</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700">Get Custom Quote</a>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
+                    <div class="text-gray-600 mb-6">Comprehensive solution for large teams</div>
+                    <div class="mb-6">
+                        <div class="text-sm text-gray-500 mb-2">IDEAL FOR</div>
+                        <div class="font-semibold">30+ SDRs</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Everything in Scale</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Territory-specific customizations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>SDR manager coaching materials</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>90-day rollout implementation plan</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Three strategy & training calls</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700">Get Custom Quote</a>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-white rounded-lg p-8 shadow-lg">
+                <h3 class="text-2xl font-bold mb-4 text-center">Ongoing Optimization Services</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <h4 class="font-semibold text-lg mb-2">Performance Optimization</h4>
+                        <p class="text-gray-600 mb-3">Monthly sequence updates and new sequence creation based on your performance data</p>
+                        <div class="text-sm text-gray-500">Available after initial package delivery</div>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-semibold text-lg mb-2">Content Refresh</h4>
+                        <p class="text-gray-600 mb-3">Quarterly updates with new industry insights and performance benchmarking</p>
+                        <div class="text-sm text-gray-500">Keep your messaging current and competitive</div>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-semibold text-lg mb-2">Training & Coaching</h4>
+                        <p class="text-gray-600 mb-3">Monthly group coaching for SDR managers plus individual sequence customization</p>
+                        <div class="text-sm text-gray-500">Maximize adoption and results</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-16 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Move Your Team to Top Performer Status?</h2>
+            <p class="text-xl mb-8 opacity-90">Get a custom quote based on your team size and specific needs. Implementation starts within 48 hours of contract signature.</p>
+            
+            <div class="bg-white bg-opacity-20 rounded-lg p-6 mb-8">
+                <h3 class="text-2xl font-bold mb-4">What happens next:</h3>
+                <div class="grid md:grid-cols-3 gap-6 text-left">
+                    <div>
+                        <div class="font-semibold mb-2">1. Discovery Call (30 min)</div>
+                        <div class="opacity-90">We'll discuss your current performance, team size, and goals</div>
+                    </div>
+                    <div>
+                        <div class="font-semibold mb-2">2. Custom Proposal</div>
+                        <div class="opacity-90">Receive a tailored package recommendation within 24 hours</div>
+                    </div>
+                    <div>
+                        <div class="font-semibold mb-2">3. 10-Day Delivery</div>
+                        <div class="opacity-90">Your custom sequences delivered with full implementation support</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <a href="mailto:hello@pipelinecatalyst.com" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100">
+                    Email: hello@pipelinecatalyst.com
+                </a>
+                <div class="text-lg opacity-90">
+                    Or book a discovery call: [Add calendar link here]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="text-2xl font-bold mb-4">Pipeline Catalyst</div>
+                <div class="text-gray-400 mb-4">Transform your SDR performance with proven sequences that top performers use</div>
+                <div class="text-gray-500">© 2025 Pipeline Catalyst. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>            top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
