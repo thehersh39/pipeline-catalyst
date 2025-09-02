@@ -3,38 +3,796 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pipeline Catalyst - Proven SaaS Sales Sequences</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Sales Simplified - Transform Your SaaS Sales Performance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --secondary: #10b981;
+            --dark: #111827;
+            --light: #f3f4f6;
+            --text: #374151;
+            --border: #e5e7eb;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E') repeat;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(10px) translateX(-10px); }
+            75% { transform: translateY(-10px) translateX(20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .process-number {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .process-card h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .process-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .process-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text);
+        }
+
+        .process-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Value Props Section */
+        .value-props {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .props-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .prop-card {
+            text-align: center;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .prop-card:hover {
+            transform: scale(1.05);
+        }
+
+        .prop-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .prop-card h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Performance Data Section */
+        .performance {
+            padding: 80px 0;
+            background: var(--dark);
+            color: white;
+        }
+
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .perf-stat {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .perf-stat .number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .perf-stat .label {
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        /* Packages Section */
+        .packages {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .package-card.featured {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .package-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .package-name {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .package-size {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .package-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--gradient);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button-white {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .cta-button-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .package-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
+<body>
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <h1 class="text-2xl font-bold text-blue-600">Pipeline Catalyst</h1>
-                <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700">Get Quote</a>
+    <nav>
+        <div class="container">
+            <div class="logo">Sales Simplified</div>
+            <div class="nav-links">
+                <a href="#how-it-works">How It Works</a>
+                <a href="#results">Results</a>
+                <a href="#packages">Packages</a>
+                <a href="#contact" class="cta-button">Get Started</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="pt-24 pb-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-5xl font-bold mb-6">Transform Your SaaS Sales Performance</h1>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Move your team from average performers (3 meetings per 1,000 emails) to top 25% (13+ meetings) with proven sequences crafted by a decade-long top performer.</p>
-            <a href="#contact" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100">Get Custom Quote</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Your SaaS Sales Team<br>From Average to Elite</h1>
+                <p class="hero-subtitle">Move from 3 meetings per 1,000 emails to 13+ with proven, human-crafted sales sequences</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">8.1x</span>
+                        <span class="stat-label">Performance Gap We Close</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10 Days</span>
+                        <span class="stat-label">Delivery Time</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">29+</span>
+                        <span class="stat-label">Touchpoints Per Package</span>
+                    </div>
+                </div>
+
+                <a href="#contact" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2rem;">Book Your Strategy Call</a>
+            </div>
         </div>
     </section>
 
-    <!-- Performance Data -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">The Performance Gap Is Real</h2>
-            <div class="grid grid-cols-4 gap-6 bg-gray-50 p-8 rounded-lg">
-                <div class="text-center">
-                    <h3 class="font-bold mb-4">Performance</h3>
-                    <div class="space-y-3">
-                        <div class="bg-white p-3 rounded">Average</div>
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How We Transform Your Sales Outreach</h2>
+                <p>Our proven process ensures your sequences are perfectly tailored to your unique sales motion</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <h3>Discovery & Scoping</h3>
+                    <ul>
+                        <li>Analyze your buyer personas and ICPs</li>
+                        <li>Map your current sales process</li>
+                        <li>Review your tech stack integration</li>
+                        <li>Identify key pain points you solve</li>
+                    </ul>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">2</div>
+                    <h3>Strategic Development</h3>
+                    <ul>
+                        <li>Craft multi-channel sequences</li>
+                        <li>Create compelling value props</li>
+                        <li>Develop call/voicemail scripts</li>
+                        <li>Design LinkedIn strategies</li>
+                    </ul>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">3</div>
+                    <h3>Implementation & Training</h3>
+                    <ul>
+                        <li>Deliver complete sequences</li>
+                        <li>Provide setup guidance</li>
+                        <li>Train your team on execution</li>
+                        <li>Share best practices playbook</li>
+                    </ul>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">4</div>
+                    <h3>Optimization & Scale</h3>
+                    <ul>
+                        <li>Track performance metrics</li>
+                        <li>A/B test variations</li>
+                        <li>Refine based on results</li>
+                        <li>Scale winning approaches</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props Section -->
+    <section class="value-props">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Sales Teams Choose Sales Simplified</h2>
+                <p>Human expertise meets systematic excellence</p>
+            </div>
+
+            <div class="props-grid">
+                <div class="prop-card">
+                    <div class="prop-icon">👤</div>
+                    <h3>Human-Crafted Excellence</h3>
+                    <p>Every sequence strategically crafted using insights from a decade of topping SaaS leaderboards</p>
+                </div>
+
+                <div class="prop-card">
+                    <div class="prop-icon">📊</div>
+                    <h3>Proven Performance</h3>
+                    <p>Systematic processes that consistently deliver 50%+ improvement in response rates</p>
+                </div>
+
+                <div class="prop-card">
+                    <div class="prop-icon">🎯</div>
+                    <h3>SaaS-Specific</h3>
+                    <p>Deep understanding of technical buyers, procurement processes, and SaaS sales cycles</p>
+                </div>
+
+                <div class="prop-card">
+                    <div class="prop-icon">⚡</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Complete sequences delivered in 10 days or less with minimal time investment from you</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Data Section -->
+    <section id="results" class="performance">
+        <div class="container">
+            <div class="section-header" style="color: white;">
+                <h2>The Performance Gap Is Real</h2>
+                <p style="color: rgba(255,255,255,0.9);">Based on analysis of 28+ million sales emails (Gong Labs)</p>
+            </div>
+
+            <div class="performance-grid">
+                <div class="perf-stat">
+                    <div class="number">3</div>
+                    <div class="label">Meetings per 1,000 emails<br>(Average Performers)</div>
+                </div>
+                <div class="perf-stat">
+                    <div class="number">13</div>
+                    <div class="label">Meetings per 1,000 emails<br>(Top 25% Performers)</div>
+                </div>
+                <div class="perf-stat">
+                    <div class="number">57.9%</div>
+                    <div class="label">Open rates achieved<br>(vs 27.3% average)</div>
+                </div>
+                <div class="perf-stat">
+                    <div class="number">29.6%</div>
+                    <div class="label">Reply-to-meeting rate<br>(vs 15.3% average)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Growth Package</h2>
+                <p>Tailored solutions for teams of every size</p>
+            </div>
+
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h3 class="package-name">Foundation</h3>
+                    <p class="package-size">1-9 Sales Professionals</p>
+                    <ul class="package-features">
+                        <li>Cold outreach sequence (15 touchpoints)</li>
+                        <li>Meeting no-show recovery (7 touchpoints)</li>
+                        <li>Post-demo follow-up (7 touchpoints)</li>
+                        <li>6 call/voicemail scripts</li>
+                        <li>LinkedIn templates & strategy</li>
+                        <li>Implementation guide & setup call</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="width: 100%;">Get Custom Quote</a>
+                </div>
+
+                <div class="package-card featured">
+                    <h3 class="package-name">Scale</h3>
+                    <p class="package-size">10-29 Sales Professionals</p>
+                    <ul class="package-features">
+                        <li>Everything in Foundation</li>
+                        <li>Stalled deal revival sequence</li>
+                        <li>Referral request sequence</li>
+                        <li>Industry-specific variations</li>
+                        <li>A/B test templates</li>
+                        <li>Two implementation calls</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="width: 100%;">Get Custom Quote</a>
+                </div>
+
+                <div class="package-card">
+                    <h3 class="package-name">Enterprise</h3>
+                    <p class="package-size">30+ Sales Professionals</p>
+                    <ul class="package-features">
+                        <li>Everything in Scale</li>
+                        <li>Competitive displacement sequence</li>
+                        <li>Territory customizations</li>
+                        <li>Manager coaching materials</li>
+                        <li>90-day rollout plan</li>
+                        <li>Three strategy calls</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="width: 100%;">Get Custom Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2>Ready to 8x Your Sales Performance?</h2>
+            <p>Join the SaaS teams achieving top 25% results with our proven sequences</p>
+            <a href="mailto:hello@salessimplified.io" class="cta-button-white">Schedule Your Strategy Call</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sales Simplified. Transforming SaaS sales performance through human expertise.</p>
+            <p style="margin-top: 1rem;">hello@salessimplified.io</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+            } else {
+                nav.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.process-card, .prop-card, .perf-stat, .package-card').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>                        <div class="bg-white p-3 rounded">Average</div>
                         <div class="bg-blue-100 p-3 rounded">Top 25%</div>
                         <div class="bg-green-100 p-3 rounded font-bold">Top 10%</div>
                     </div>
