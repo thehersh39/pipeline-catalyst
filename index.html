@@ -82,7 +82,7 @@
 
         .cta-button {
             background: var(--primary);
-            color: white;
+            color: white !important;
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
@@ -509,7 +509,27 @@
 <body>
     <nav>
         <div class="container">
-            <div class="logo">Sales Simplified</div>
+            <div class="logo" style="display: flex; align-items: center;">
+                <svg width="40" height="40" viewBox="0 0 100 100" style="margin-right: 10px;">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Circle -->
+                    <circle cx="50" cy="50" r="45" stroke="#2c5282" stroke-width="3" fill="none"/>
+                    <!-- Chart bars -->
+                    <rect x="20" y="55" width="10" height="20" fill="#2c5282"/>
+                    <rect x="35" y="45" width="10" height="30" fill="#2c5282"/>
+                    <rect x="50" y="35" width="10" height="40" fill="#2c5282"/>
+                    <rect x="65" y="25" width="10" height="50" fill="#2c5282"/>
+                    <!-- Arrow -->
+                    <path d="M25 60 Q45 40, 70 20 M70 20 L70 32 M70 20 L58 20" 
+                          stroke="#00bcd4" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.5rem; font-weight: bold;">Sales Simplified</span>
+            </div>
             <div class="nav-links">
                 <a href="#how-it-works">How It Works</a>
                 <a href="#results">Results</a>
@@ -528,7 +548,7 @@
                 <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-number">8.1x</span>
-                        <span class="stat-label">Performance Gap We Close</span>
+                        <span class="stat-label">Industry Performance Gap</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number">10 Days</span>
@@ -718,8 +738,8 @@
 
     <section id="contact" class="cta-section">
         <div class="container">
-            <h2>Ready to 8x Your Sales Performance?</h2>
-            <p>Join the SaaS teams achieving top 25% results with our proven sequences</p>
+            <h2>Ready to Transform Your Sales Performance?</h2>
+            <p>Join SaaS teams using proven sequences to achieve top-tier results</p>
             <a href="mailto:hello@salessimplified.io" class="cta-button-white">Schedule Your Strategy Call</a>
         </div>
     </section>
