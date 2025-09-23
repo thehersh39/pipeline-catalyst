@@ -80,9 +80,23 @@
             color: var(--primary);
         }
 
+        .nav-links a.cta-button {
+            color: white !important;
+            background: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+        }
+
+        .nav-links a.cta-button:hover {
+            color: white !important;
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+        }
+
         .cta-button {
             background: var(--primary);
-            color: white;
+            color: white !important;
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
@@ -97,6 +111,11 @@
             background: var(--primary-dark);
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+            color: white !important;
+        }
+
+        .nav-links .cta-button {
+            color: white !important;
         }
 
         .hero {
@@ -531,9 +550,9 @@
                 <span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.5rem; font-weight: bold;">Sales Simplified</span>
             </div>
             <div class="nav-links">
-                <a href="#how-it-works">How It Works</a>
-                <a href="#results">Results</a>
-                <a href="#packages">Packages</a>
+                <a href="#" onclick="alert('How It Works page coming soon!')">How It Works</a>
+                <a href="#" onclick="alert('Why Choose Us page coming soon!')">Why Choose Us</a>
+                <a href="#" onclick="alert('Packages page coming soon!')">Packages</a>
                 <a href="#contact" class="cta-button">Get Started</a>
             </div>
         </div>
@@ -548,7 +567,7 @@
                 <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-number">8.1x</span>
-                        <span class="stat-label">Performance Gap We Close</span>
+                        <span class="stat-label">Industry Performance Gap</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number">10 Days</span>
@@ -788,8 +807,8 @@
 
     <section id="contact" class="cta-section">
         <div class="container">
-            <h2>Ready to 8x Your Sales Performance?</h2>
-            <p>Join the SaaS teams achieving top 25% results with our proven sequences</p>
+            <h2>Ready to Transform Your Sales Performance?</h2>
+            <p>Join SaaS teams using proven sequences to achieve top-tier results</p>
             <a href="mailto:hello@salessimplified.io" class="cta-button-white">Schedule Your Strategy Call</a>
         </div>
     </section>
