@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Choose Us - Sales Simplified</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --secondary: #10b981;
+            --dark: #111827;
+            --light: #f3f4f6;
+            --text: #374151;
+            --border: #e5e7eb;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background: var(--primary) !important;
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+            color: white !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .comparison-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .comparison-table {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: var(--gradient);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table th:first-child {
+            width: 40%;
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .feature {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .check {
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+
+        .cross {
+            color: #ef4444;
+            font-size: 1.5rem;
+        }
+
+        /* Differentiators Section */
+        .differentiators {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .diff-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .diff-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .diff-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease;
+        }
+
+        .diff-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .diff-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .diff-card h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .diff-card p {
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* Testimonial Section */
+        .testimonial {
+            padding: 80px 0;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-text {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .testimonial-author {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text);
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--gradient);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button-white {
+            background: white !important;
+            color: var(--primary) !important;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .cta-button-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-table {
+                overflow-x: auto;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 100 100" style="margin-right: 10px;">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" stroke="#2c5282" stroke-width="3" fill="none"/>
+                    <rect x="20" y="55" width="10" height="20" fill="#2c5282"/>
+                    <rect x="35" y="45" width="10" height="30" fill="#2c5282"/>
+                    <rect x="50" y="35" width="10" height="40" fill="#2c5282"/>
+                    <rect x="65" y="25" width="10" height="50" fill="#2c5282"/>
+                    <path d="M25 60 Q45 40, 70 20 M70 20 L70 32 M70 20 L58 20" 
+                          stroke="#00bcd4" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.5rem; font-weight: bold;">Sales Simplified</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="why-choose-us.html" class="active">Why Choose Us</a>
+                <a href="packages.html">Packages</a>
+                <a href="index.html#contact" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Why Sales Teams Choose Sales Simplified</h1>
+            <p>Custom sequences built for your business, not generic templates you have to customize</p>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container">
+            <div class="comparison-header">
+                <h2>How We're Different</h2>
+                <p style="font-size: 1.2rem; color: var(--text);">Compare Sales Simplified to other options in the market</p>
+            </div>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Sales Simplified</th>
+                            <th>AI Tools</th>
+                            <th>Generic Templates</th>
+                            <th>Agencies</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature">Custom to Your Business</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Ready to Send Immediately</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Human Expertise</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature">10-Day Delivery</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Multi-Channel Sequences</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature">SaaS Sales Expertise</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td>Varies</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Affordable Pricing</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentiators Section -->
+    <section class="differentiators">
+        <div class="container">
+            <div class="diff-header">
+                <h2>What Makes Us Different</h2>
+                <p style="font-size: 1.2rem; color: var(--text);">We combine the best of all worlds without the drawbacks</p>
+            </div>
+
+            <div class="diff-grid">
+                <div class="diff-card">
+                    <div class="diff-icon">🎯</div>
+                    <h3>Truly Custom</h3>
+                    <p>We spend 90 minutes understanding your business before writing a single word. Every sequence reflects your unique value proposition, speaks to your specific buyers, and integrates with your sales process.</p>
+                </div>
+
+                <div class="diff-card">
+                    <div class="diff-icon">⚡</div>
+                    <h3>No Assembly Required</h3>
+                    <p>Unlike templates that need hours of customization, our sequences arrive ready to load into your tools and send. No blanks to fill, no generic language to fix, no wondering if it sounds right.</p>
+                </div>
+
+                <div class="diff-card">
+                    <div class="diff-icon">🏆</div>
+                    <h3>Proven Expertise</h3>
+                    <p>Created by someone who's consistently ranked in the top 10% of SaaS sales performers for a decade. Not theory, not AI guesses—real strategies that have booked thousands of meetings.</p>
+                </div>
+
+                <div class="diff-card">
+                    <div class="diff-icon">📊</div>
+                    <h3>Complete System</h3>
+                    <p>Email alone doesn't cut it anymore. You get coordinated email, phone, and LinkedIn sequences that work together, plus call scripts your team will actually use.</p>
+                </div>
+
+                <div class="diff-card">
+                    <div class="diff-icon">🚀</div>
+                    <h3>Fast Implementation</h3>
+                    <p>10 days from kickoff to implementation. Agencies take months. AI tools give you garbage instantly. We deliver quality at the speed your business needs.</p>
+                </div>
+
+                <div class="diff-card">
+                    <div class="diff-icon">💰</div>
+                    <h3>Clear ROI</h3>
+                    <p>Moving from 3 to 12 meetings per 1,000 emails pays for our service in the first week. No long contracts, no hidden fees, just results that justify the investment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years in SaaS Sales</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8.1x</div>
+                    <div class="stat-label">Performance Gap We Close</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">29+</div>
+                    <div class="stat-label">Touchpoints Per Package</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Days to Delivery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <h2>Built for Sales Teams, By Sales Professionals</h2>
+                <p class="testimonial-text">"After a decade of consistently topping sales leaderboards, I know what separates average from elite performance. It's not talent or effort—it's having the right sequences. That's exactly what we deliver."</p>
+                <p class="testimonial-author">— Founder, Sales Simplified</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Leave Generic Behind?</h2>
+            <p>Get custom sequences built specifically for your business</p>
+            <a href="mailto:hello@salessimplified.io" class="cta-button-white">Schedule Your Discovery Call</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sales Simplified. Transforming SaaS sales performance through human expertise.</p>
+            <p style="margin-top: 1rem;">hello@salessimplified.io</p>
+        </div>
+    </footer>
+</body>
+</html>
