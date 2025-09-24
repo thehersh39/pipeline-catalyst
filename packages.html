@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages - Sales Simplified</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --secondary: #10b981;
+            --dark: #111827;
+            --light: #f3f4f6;
+            --text: #374151;
+            --border: #e5e7eb;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background: var(--primary) !important;
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+            color: white !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Packages Section */
+        .packages {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .packages-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .packages-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .package-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .package-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .package-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .package-name {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .package-size {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .package-price {
+            margin: 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .price-label {
+            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .package-features li {
+            padding: 12px 0;
+            display: flex;
+            align-items: flex-start;
+            color: var(--text);
+        }
+
+        .package-features li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .package-highlight {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .package-highlight strong {
+            color: var(--dark);
+        }
+
+        /* Ongoing Services */
+        .ongoing {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .ongoing-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .ongoing-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .ongoing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .ongoing-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+        }
+
+        .ongoing-card h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .ongoing-card .price {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .ongoing-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .ongoing-card li {
+            padding: 8px 0;
+            color: var(--text);
+        }
+
+        .ongoing-card li::before {
+            content: '•';
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .faq-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .faq-item p {
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--gradient);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button-white {
+            background: white !important;
+            color: var(--primary) !important;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .cta-button-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .package-card.featured {
+                transform: scale(1);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 100 100" style="margin-right: 10px;">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" stroke="#2c5282" stroke-width="3" fill="none"/>
+                    <rect x="20" y="55" width="10" height="20" fill="#2c5282"/>
+                    <rect x="35" y="45" width="10" height="30" fill="#2c5282"/>
+                    <rect x="50" y="35" width="10" height="40" fill="#2c5282"/>
+                    <rect x="65" y="25" width="10" height="50" fill="#2c5282"/>
+                    <path d="M25 60 Q45 40, 70 20 M70 20 L70 32 M70 20 L58 20" 
+                          stroke="#00bcd4" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.5rem; font-weight: bold;">Sales Simplified</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="why-choose-us.html">Why Choose Us</a>
+                <a href="packages.html" class="active">Packages</a>
+                <a href="index.html#contact" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Choose Your Growth Package</h1>
+            <p>Tailored solutions for teams of every size, with custom sequences built specifically for your business</p>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages">
+        <div class="container">
+            <div class="packages-header">
+                <h2>One-Time Implementation Packages</h2>
+                <p style="font-size: 1.2rem; color: var(--text);">Transform your sales performance with custom sequences ready to deploy immediately</p>
+            </div>
+
+            <div class="packages-grid">
+                <!-- Foundation Package -->
+                <div class="package-card">
+                    <h3 class="package-name">Foundation</h3>
+                    <p class="package-size">1-9 Sales Professionals</p>
+                    
+                    <div class="package-highlight">
+                        <strong>Perfect for:</strong> Startups and small teams ready to level up their outreach
+                    </div>
+
+                    <ul class="package-features">
+                        <li><strong>Cold Outreach Sequence</strong> - 15 touchpoints (6 emails, 6 calls, 3 LinkedIn)</li>
+                        <li><strong>Meeting No-Show Recovery</strong> - 7 touchpoints to rescue lost opportunities</li>
+                        <li><strong>Post-Demo Follow-up</strong> - 7 touchpoints to drive decisions</li>
+                        <li><strong>6 Call Scripts</strong> - Natural, conversational scripts (2 per sequence)</li>
+                        <li><strong>LinkedIn Strategy</strong> - Connection requests and message templates</li>
+                        <li><strong>Implementation Guide</strong> - Step-by-step setup instructions</li>
+                        <li><strong>60-Minute Training Call</strong> - Ensure your team uses sequences effectively</li>
+                    </ul>
+
+                    <div class="package-price">
+                        <p class="price-label">Custom pricing based on your specific needs</p>
+                    </div>
+
+                    <a href="mailto:hello@salessimplified.io?subject=Foundation Package Inquiry" class="cta-button" style="width: 100%;">Get Your Custom Quote</a>
+                </div>
+
+                <!-- Scale Package -->
+                <div class="package-card featured">
+                    <h3 class="package-name">Scale</h3>
+                    <p class="package-size">10-29 Sales Professionals</p>
+                    
+                    <div class="package-highlight">
+                        <strong>Perfect for:</strong> Growing teams ready to systematize their success
+                    </div>
+
+                    <ul class="package-features">
+                        <li><strong>Everything in Foundation</strong></li>
+                        <li><strong>Stalled Deal Revival</strong> - 8 touchpoints to re-engage quiet prospects</li>
+                        <li><strong>Referral Request Sequence</strong> - 7 touchpoints to expand through warm intros</li>
+                        <li><strong>Industry Variations</strong> - Customize messaging for 3 key verticals</li>
+                        <li><strong>A/B Test Templates</strong> - Test subject lines and messaging approaches</li>
+                        <li><strong>Competitive Differentiation</strong> - Scripts for common objections</li>
+                        <li><strong>Two Implementation Calls</strong> - Initial setup + 30-day optimization</li>
+                        <li><strong>Manager Playbook</strong> - Guide for coaching your team</li>
+                    </ul>
+
+                    <div class="package-price">
+                        <p class="price-label">Most popular choice for growing teams</p>
+                    </div>
+
+                    <a href="mailto:hello@salessimplified.io?subject=Scale Package Inquiry" class="cta-button" style="width: 100%;">Get Your Custom Quote</a>
+                </div>
+
+                <!-- Enterprise Package -->
+                <div class="package-card">
+                    <h3 class="package-name">Enterprise</h3>
+                    <p class="package-size">30+ Sales Professionals</p>
+                    
+                    <div class="package-highlight">
+                        <strong>Perfect for:</strong> Large teams requiring comprehensive transformation
+                    </div>
+
+                    <ul class="package-features">
+                        <li><strong>Everything in Scale</strong></li>
+                        <li><strong>Competitive Displacement</strong> - 10+ touchpoints to win from competitors</li>
+                        <li><strong>Territory Customization</strong> - Adapt for different regions/segments</li>
+                        <li><strong>Persona-Based Variations</strong> - Different sequences for each buyer type</li>
+                        <li><strong>Advanced Call Frameworks</strong> - Discovery, demo, and negotiation scripts</li>
+                        <li><strong>90-Day Rollout Plan</strong> - Phased implementation strategy</li>
+                        <li><strong>Three Strategy Calls</strong> - Kickoff, 30-day, and 60-day reviews</li>
+                        <li><strong>Executive Reporting Template</strong> - Track and present ROI</li>
+                    </ul>
+
+                    <div class="package-price">
+                        <p class="price-label">Comprehensive solution for enterprise teams</p>
+                    </div>
+
+                    <a href="mailto:hello@salessimplified.io?subject=Enterprise Package Inquiry" class="cta-button" style="width: 100%;">Get Your Custom Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ongoing Services Section -->
+    <section class="ongoing">
+        <div class="container">
+            <div class="ongoing-header">
+                <h2>Ongoing Optimization Services</h2>
+                <p style="font-size: 1.2rem; color: var(--text);">Keep your sequences performing at peak levels with continuous improvement</p>
+            </div>
+
+            <div class="ongoing-grid">
+                <div class="ongoing-card">
+                    <h3>Performance Optimization</h3>
+                    <p class="price">Monthly</p>
+                    <ul>
+                        <li>Monthly sequence performance analysis</li>
+                        <li>A/B test recommendations</li>
+                        <li>Updated messaging based on results</li>
+                        <li>New subject lines and hooks</li>
+                    </ul>
+                </div>
+
+                <div class="ongoing-card">
+                    <h3>Content Refresh</h3>
+                    <p class="price">Quarterly</p>
+                    <ul>
+                        <li>Quarterly industry trend updates</li>
+                        <li>New case studies and social proof</li>
+                        <li>Seasonal campaign sequences</li>
+                        <li>Competitor positioning updates</li>
+                    </ul>
+                </div>
+
+                <div class="ongoing-card">
+                    <h3>Training & Coaching</h3>
+                    <p class="price">As Needed</p>
+                    <ul>
+                        <li>Monthly team coaching calls</li>
+                        <li>New hire onboarding sessions</li>
+                        <li>Role-play and practice sessions</li>
+                        <li>Individual rep coaching available</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="faq-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Why don't you show pricing on the website?</h3>
+                    <p>Every business is unique, with different team sizes, sales cycles, and sequence needs. We provide custom quotes based on your specific requirements to ensure you only pay for what you need. Our pricing is transparent and competitive—we just need to understand your needs first.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What's included in the discovery session?</h3>
+                    <p>We spend 90 minutes understanding your buyers, your solution's unique value, your sales process, tech stack, team structure, and what messaging has worked in the past. This isn't a surface-level chat—it's a deep dive that ensures your sequences sound like they came from your best rep.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How are you different from hiring a copywriter?</h3>
+                    <p>Most copywriters don't understand SaaS sales cycles, multi-channel orchestration, or what actually gets prospects to respond. We bring a decade of top-performing SaaS sales experience, not just writing skills. Your sequences are built by someone who's actually booked thousands of meetings.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can we start with Foundation and upgrade later?</h3>
+                    <p>Absolutely! Many clients start with Foundation to prove the ROI, then expand to additional sequences as they grow. We can add new sequences, personas, or team members whenever you're ready.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Do you guarantee results?</h3>
+                    <p>While we can't guarantee specific meeting numbers (too many variables), we do guarantee sequences built on proven frameworks that top performers use. Most clients see significant improvements within 30-60 days, typically moving from 3-4 meetings to 10-12 meetings per 1,000 emails.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Sales Outreach?</h2>
+            <p>Get custom sequences your team can deploy immediately</p>
+            <a href="mailto:hello@salessimplified.io" class="cta-button-white">Schedule Your Discovery Call</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sales Simplified. Transforming SaaS sales performance through human expertise.</p>
+            <p style="margin-top: 1rem;">hello@salessimplified.io</p>
+        </div>
+    </footer>
+</body>
+</html>
