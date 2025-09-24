@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Sales Simplified</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --secondary: #10b981;
+            --dark: #111827;
+            --light: #f3f4f6;
+            --text: #374151;
+            --border: #e5e7eb;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background: var(--primary) !important;
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+            color: white !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .process-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .process-grid {
+            display: grid;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .process-step:nth-child(even) {
+            direction: rtl;
+        }
+
+        .process-step:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .step-content {
+            padding: 40px;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .step-content h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .step-content p {
+            color: var(--text);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .step-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-content li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            color: var(--text);
+        }
+
+        .step-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .step-visual {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .step-icon {
+            font-size: 120px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .timeline-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+        }
+
+        .timeline-item .day {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--gradient);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button-white {
+            background: white !important;
+            color: var(--primary) !important;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .cta-button-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .process-step {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step:nth-child(even) {
+                direction: ltr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 100 100" style="margin-right: 10px;">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" stroke="#2c5282" stroke-width="3" fill="none"/>
+                    <rect x="20" y="55" width="10" height="20" fill="#2c5282"/>
+                    <rect x="35" y="45" width="10" height="30" fill="#2c5282"/>
+                    <rect x="50" y="35" width="10" height="40" fill="#2c5282"/>
+                    <rect x="65" y="25" width="10" height="50" fill="#2c5282"/>
+                    <path d="M25 60 Q45 40, 70 20 M70 20 L70 32 M70 20 L58 20" 
+                          stroke="#00bcd4" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.5rem; font-weight: bold;">Sales Simplified</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="how-it-works.html" class="active">How It Works</a>
+                <a href="why-choose-us.html">Why Choose Us</a>
+                <a href="packages.html">Packages</a>
+                <a href="index.html#contact" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>How Sales Simplified Works</h1>
+            <p>From understanding your unique business to delivering ready-to-send sequences in 10 days</p>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="process-header">
+                <h2>Our 4-Step Process</h2>
+                <p style="font-size: 1.2rem; color: var(--text);">We don't hand you generic templates. We build custom sequences specifically for your business.</p>
+            </div>
+
+            <div class="process-grid">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-content">
+                        <span class="step-number">1</span>
+                        <h3>Discovery & Deep Dive</h3>
+                        <p>We start with a comprehensive 90-minute discovery session where we learn everything about your business, not just surface-level information.</p>
+                        <ul>
+                            <li>Your specific buyer personas and their pain points</li>
+                            <li>What makes your solution unique in the market</li>
+                            <li>Your sales team structure and current process</li>
+                            <li>Your tech stack and how sequences will integrate</li>
+                            <li>Past messaging that has worked (and what hasn't)</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-icon">🎯</div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-content">
+                        <span class="step-number">2</span>
+                        <h3>Custom Sequence Creation</h3>
+                        <p>Using insights from our discovery, we craft sequences that sound like they came from your best rep on their best day - because they're built on real understanding of your business.</p>
+                        <ul>
+                            <li>Multi-channel approach (email, phone, LinkedIn)</li>
+                            <li>Your unique value props woven throughout</li>
+                            <li>Industry-specific language and references</li>
+                            <li>Compelling subject lines tested for your market</li>
+                            <li>Call scripts that feel natural to your team</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-icon">✍️</div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-content">
+                        <span class="step-number">3</span>
+                        <h3>Review & Refinement</h3>
+                        <p>Your sequences go through our proven quality process, then we collaborate with you to ensure every message aligns with your brand voice and goals.</p>
+                        <ul>
+                            <li>Internal review against top performer benchmarks</li>
+                            <li>Your team reviews and provides feedback</li>
+                            <li>We refine until every sequence is perfect</li>
+                            <li>Final approval from your stakeholders</li>
+                            <li>Ready-to-deploy formatting for your systems</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-icon">🔄</div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="step-content">
+                        <span class="step-number">4</span>
+                        <h3>Implementation & Training</h3>
+                        <p>We don't just hand over documents and disappear. We ensure your team knows exactly how to use these sequences for maximum impact.</p>
+                        <ul>
+                            <li>Sequences formatted for your specific tools</li>
+                            <li>Team training on when and how to use each sequence</li>
+                            <li>Best practices guide for personalization</li>
+                            <li>A/B testing recommendations</li>
+                            <li>30-day follow-up to track initial results</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="step-icon">🚀</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <div class="container">
+            <div class="timeline-header">
+                <h2>Your 10-Day Timeline</h2>
+                <p style="font-size: 1.2rem; color: var(--text);">From kickoff to implementation in less than two weeks</p>
+            </div>
+
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <div class="day">Day 1</div>
+                    <h3>Kickoff Call</h3>
+                    <p>90-minute deep dive into your business, buyers, and goals</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="day">Days 2-5</div>
+                    <h3>Sequence Development</h3>
+                    <p>We craft your custom multi-channel sequences</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="day">Day 6</div>
+                    <h3>Internal Review</h3>
+                    <p>Quality assurance and optimization based on best practices</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="day">Day 7</div>
+                    <h3>Client Review</h3>
+                    <p>You review sequences and provide feedback</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="day">Days 8-9</div>
+                    <h3>Refinement</h3>
+                    <p>We incorporate feedback and perfect every detail</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="day">Day 10</div>
+                    <h3>Delivery & Training</h3>
+                    <p>Final sequences delivered with team training session</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Transform your sales outreach in just 10 days</p>
+            <a href="mailto:hello@salessimplified.io" class="cta-button-white">Schedule Your Discovery Call</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sales Simplified. Transforming SaaS sales performance through human expertise.</p>
+            <p style="margin-top: 1rem;">hello@salessimplified.io</p>
+        </div>
+    </footer>
+</body>
+</html>
